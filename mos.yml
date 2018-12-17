@@ -2,7 +2,7 @@ author: Michael
 description: bh1750 driver
 version: 1.0
 
-include:
+includes:
   - include
 
 sources:
