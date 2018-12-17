@@ -1,7 +1,9 @@
-# A blank Mongoose OS app
+# BH1750 ambient light sensor native library for Mongoose OS
 
 ## Overview
 
-This is an empty app, serves as a skeleton for building Mongoose OS
-apps from scratch.
+BH1750 ambient light sensor native C driver for Mongoose OS
 
+## Sensor wiring
+
+## Usage
