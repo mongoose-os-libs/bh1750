@@ -6,6 +6,10 @@ BH1750 ambient light sensor native C driver for Mongoose OS
 
 ## Sensor wiring
 
+## Todo
+* implement sensor sensitivity adjusting
+* use timer instead of mgos_msleep?
+
 ## Usage
 ```c
 struct sensor_bh1750* bh = sensor_bh1750_create(0x23);
