@@ -4,18 +4,11 @@
 
 BH1750 ambient light sensor native C driver for Mongoose OS
 
-## Sensor wiring
-
-## Todo
-* implement sensor sensitivity adjusting
-* use timer instead of mgos_msleep?
-
 ## Usage
-```c
-struct sensor_bh1750* bh = sensor_bh1750_create(0x23);
 
-float lux = sensor_bh1750_get_lux(bh, ONE_TIME_HIGH_RES_MODE_2);
-printf("Light: %f lux\n", lux);
+See sample app [here](https://github.com/mongoose-os-apps/example-bh1750).
 
-sensor_bh1750_free(bh, false);
-```
+## Authors
+
+ * Michael Mac
+ * Deomid "rojer" Ryabkov

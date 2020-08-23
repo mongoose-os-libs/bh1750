@@ -1,6 +1,6 @@
-author: Michael Mac
-description: bh1750 driver
-version: 1.0
+author: Michael Mac, Deomid "rojer" Ryabkov
+description: BH1750 driver
+version: 2.0.0
 
 includes:
   - include
@@ -10,7 +10,7 @@ sources:
 
 libs:
   - origin: https://github.com/mongoose-os-libs/i2c
-  
+
 tags:
   - c
   - docs:drivers:bh1750 I2C
