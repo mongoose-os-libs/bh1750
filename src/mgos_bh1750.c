@@ -191,17 +191,15 @@ int mgos_bh1750_read_raw(struct mgos_bh1750 *bh) {
   return ((value[0] << 8) | value[1]);
 }
 
-static int mgos_bh1750_calc_wait_time_ms(int64_t since, int meas_time_ms,
-                                         enum mgos_bh1750_mode mode) {
+static int mgos_bh1750_calc_wait_time_ms(int64_t since, int meas_time_ms) {
   int64_t deadline = since + (meas_time_ms * 1000);
-  int result = (deadline - mgos_uptime_micros()) / 1000;
-  return (result >= 0 ? result : 0);
+  int64_t result = (deadline - mgos_uptime_micros()) / 1000;
+  return (result >= 0 ? (int) result : 0);
 }
 
 bool mgos_bh1750_data_valid(struct mgos_bh1750 *bh) {
   if (bh->mode == MGOS_BH1750_MODE_POWER_DOWN) return false;
-  int wait_ms =
-      mgos_bh1750_calc_wait_time_ms(bh->meas_start, bh->meas_time_ms, bh->mode);
+  int wait_ms = mgos_bh1750_calc_wait_time_ms(bh->meas_start, bh->meas_time_ms);
   return (wait_ms <= 0);
 }
 
@@ -219,8 +217,7 @@ int mgos_bh1750_get_meas_time_ms(struct mgos_bh1750 *bh) {
 }
 
 int mgos_bh1750_get_wait_time_ms(struct mgos_bh1750 *bh) {
-  return mgos_bh1750_calc_wait_time_ms(bh->last_sample, bh->meas_time_ms,
-                                       bh->mode);
+  return mgos_bh1750_calc_wait_time_ms(bh->last_sample, bh->meas_time_ms);
 }
 
 bool mgos_bh1750_init() {
