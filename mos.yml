@@ -9,7 +9,7 @@ sources:
   - src
 
 libs:
-  - origin: https://github.com/mongoose-os-libs/i2c
+  - location: https://github.com/mongoose-os-libs/i2c
 
 tags:
   - c
